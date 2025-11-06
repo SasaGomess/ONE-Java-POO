@@ -1,7 +1,9 @@
 package entities;
 
 
-public class Serie extends Titulo {
+import calculo.Classifiable;
+
+public class Serie extends Titulo implements Classifiable {
     private int seasons;
     private boolean active;
     private int episodesOfSeasons;
@@ -42,5 +44,10 @@ public class Serie extends Titulo {
 
     public void setMinutesForEpisodes(int minutesForEpisodes) {
         this.minutesForEpisodes = minutesForEpisodes;
+    }
+
+    @Override
+    public int getClassification() {
+        return 0;
     }
 }

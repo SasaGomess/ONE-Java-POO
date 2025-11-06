@@ -1,6 +1,8 @@
 package application;
 
+import calculo.RecomendationFilter;
 import calculo.TimeCalculator;
+import entities.Episode;
 import entities.Movie;
 import entities.Serie;
 
@@ -16,6 +18,7 @@ public class Application {
         m1.setDurationInMinutes(150);
         m1.setYearOfRelease(LocalDate.parse("1970-01-01", fmt));
         System.out.println("A duração do filme é " + m1.getDurationInMinutes());
+        RecomendationFilter.filter(m1);
 
         m1.showTechnicalInformation();
 
@@ -49,6 +52,12 @@ public class Application {
         timeCalculator1.includes(serie);
 
         System.out.println(timeCalculator1.getTempototal());
+        Episode ep1 = new Episode();
+        ep1.setNumber(2);
+        ep1.setSerie(serie);
+        ep1.setTotalViews(3000);
+        
+        RecomendationFilter.filter(ep1);
 
     }
 }

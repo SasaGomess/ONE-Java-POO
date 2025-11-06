@@ -1,9 +1,11 @@
 package entities;
 
 
+import calculo.Classifiable;
+
 import java.time.LocalDate;
 
-public class Movie extends Titulo{
+public class Movie extends Titulo implements Classifiable {
    private String director;
 
     public Movie(String name, String description, LocalDate yearOfRelease, boolean includedInThePlan, int duration, String director) {
@@ -22,5 +24,10 @@ public class Movie extends Titulo{
 
     public void setDirector(String director) {
         this.director = director;
+    }
+
+    @Override
+    public int getClassification() {
+        return (int) this.rateAverage() / 2;
     }
 }
